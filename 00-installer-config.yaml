@@ -1,0 +1,20 @@
+network:
+  version: 2
+  renderer: networkd
+
+  wifis:
+    wlp2s0: # replace with YOUR wireless interface name
+      dhcp4: no
+      addresses:
+        - 192.168.1.50/24     # pick a free IP outside DHCP pool, check your IP range 
+      routes:
+        - to: default
+          via: 192.168.1.1    # replace your router IP
+      nameservers:
+        addresses:
+          - 1.1.1.1
+          - 8.8.8.8
+
+      access-points: # keep quotation marks on both ap name and password
+        "ap-name": # replace with access point name
+          password: "password123" # replace with ap password
